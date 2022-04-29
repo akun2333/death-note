@@ -13,13 +13,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
   - 移动端适配
 
 - Todo
-  - PC 端适配（暂时无解）
+  - PC 端适配
   - Navbar 返回逻辑优化
   - 标题过长忽略
-  - 搜索功能（后端正则匹配）
-  - 富文本编辑（引入 froala）
-  - 主题切换（CSS variables）
-
-## 本作品为 云影天光 实习面试题
-
-官方网站：https://www.perspectivar.com/
+  - 搜索功能
+  - 富文本编辑
+  - 主题切换
