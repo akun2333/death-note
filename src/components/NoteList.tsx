@@ -10,22 +10,22 @@ export const NoteList = ({
     color: 'danger'
   },
   loadMore,
-  handlerDelItem,
-  handlerListItem,
-  handlerTags
+  handleDelItem,
+  handleListItem,
+  handleTags
 }: INoteList) => {
   const TagsList = ({ tags }: { tags: string[] }) => {
     return (
-      <div className="flex">
+      <div className='flex'>
         {tags.map((value, key) => (
           <Tag
-            className="mr-2"
-            color="primary"
-            fill="outline"
+            className='mr-2'
+            color='primary'
+            fill='outline'
             key={key}
             onClick={e => {
               e.stopPropagation()
-              handlerTags(value)
+              handleTags(value)
             }}
           >
             #{value}
@@ -38,10 +38,10 @@ export const NoteList = ({
     <div>
       {data.map(({ _id, title, content, tags }, key) => (
         <Card
-          className="mb-4"
+          className='mb-4'
           title={title || '无标题'}
           key={key}
-          onClick={() => handlerListItem(_id)}
+          onClick={() => handleListItem(_id)}
         >
           <SwipeAction
             rightActions={[
@@ -49,12 +49,12 @@ export const NoteList = ({
                 ...rightActions,
                 onClick: e => {
                   e.stopPropagation()
-                  handlerDelItem(key)
+                  handleDelItem(key)
                 }
               }
             ]}
           >
-            <List.Item>{content || '暂无内容'}</List.Item>
+            <List.Item className=' h-12'>{content || '暂无内容'}</List.Item>
             <TagsList tags={tags} />
           </SwipeAction>
         </Card>
@@ -75,7 +75,7 @@ export type INoteList = {
   hasMore?: boolean
   rightActions?: Action
   loadMore: () => Promise<void>
-  handlerDelItem: (key: number) => void
-  handlerListItem: (_id: string) => void
-  handlerTags: (tag: string) => void
+  handleDelItem: (key: number) => void
+  handleListItem: (_id: string) => void
+  handleTags: (tag: string) => void
 }

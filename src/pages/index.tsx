@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { AddOutline } from 'antd-mobile-icons'
-import { Navbar, NoteList, INoteListData, Noticebar } from '../components'
+import { Navbar, NoteList, INoteListData, Noticebar } from '@components'
 
 export default () => {
   const router = useRouter()
@@ -13,13 +13,13 @@ export default () => {
   const [hasMore, setHasMore] = useState(true)
   const [sentence, setSentence] = useState('')
 
-  const handlerNote = () => router.push('/note')
+  const handleNote = () => router.push('/note')
 
-  const handlerListItem = (_id: string) => {
+  const handleListItem = (_id: string) => {
     router.push(`/note?_id=${_id}`)
   }
 
-  const handlerDelItem = async (key: number) => {
+  const handleDelItem = async (key: number) => {
     setData(value =>
       value.filter(({ _id }, k) => {
         if (k == key) axios.request({ method: 'GET', url: '/api/del', params: { _id } })
@@ -28,12 +28,12 @@ export default () => {
     )
   }
 
-  const handlerTags = async (tags: string) => {
+  const handleTags = async (tags: string) => {
     await router.replace(`/?tags=${tags}`)
     router.reload()
   }
 
-  const handlerLoadMore = async () => {
+  const handleLoadMore = async () => {
     const tags = new URL(location.href).searchParams.get('tags')
     const { data } = await axios.request<any[]>({
       method: 'GET',
@@ -64,25 +64,25 @@ export default () => {
   }, [])
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className='flex flex-col h-screen'>
       <Navbar
         sticky
         backArrow={backArrow}
         title={title}
-        right={<AddOutline onClick={handlerNote} />}
+        right={<AddOutline onClick={handleNote} />}
       />
-      <div className="flex-1 bg-gray-50 p-4">
-        <div className="w-full mb-4">
+      <div className='flex-1 bg-gray-50 p-4'>
+        <div className='w-full mb-4'>
           <Noticebar data={sentence} />
         </div>
 
         <NoteList
           data={data}
           hasMore={hasMore}
-          loadMore={handlerLoadMore}
-          handlerDelItem={handlerDelItem}
-          handlerListItem={handlerListItem}
-          handlerTags={handlerTags}
+          loadMore={handleLoadMore}
+          handleDelItem={handleDelItem}
+          handleListItem={handleListItem}
+          handleTags={handleTags}
         />
       </div>
     </div>

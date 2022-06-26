@@ -1,7 +1,8 @@
 {
   "semi": false,
-  "printWidth": 90,
+  "printWidth": 100,
   "singleQuote": true,
-  "trailingComma": "none",
-  "arrowParens": "avoid"
+  "jsxSingleQuote": true,
+  "arrowParens": "avoid",
+  "trailingComma": "none"
 }

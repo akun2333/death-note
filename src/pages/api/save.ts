@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { saveOne } from '../../database'
+import { saveOne } from '@database'
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
   const { _id, tags, title, content } = req.query

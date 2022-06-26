@@ -36,8 +36,12 @@ export const delOne = (id: string) => {
 
 export const reset = () => setStorage([])
 
-export const getStorage = () => {
-  return JSON.parse(readFileSync(database).toString()) as INote[]
+export const getStorage = (): INote[] => {
+  let data: any = '[]'
+  try {
+    data = readFileSync(database).toString()
+  } catch {}
+  return JSON.parse(data)
 }
 
 export const setStorage = (data: INote[]) => {

@@ -1,14 +1,16 @@
 {
-  "name": "next-note",
-  "private": true,
+  "name": "death-note",
   "scripts": {
+    "pre:build": "tsc ./next.config.ts",
+    "build": "npm run pre:build && next build && next export -o .dist",
+    "prod": "next start",
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write src/**/*.{ts,tsx}"
   },
   "dependencies": {
     "@types/lodash": "^4.14.178",
+    "@types/react-dom": "^18.0.5",
     "antd-mobile": "^5.0.0-rc.26",
     "antd-mobile-icons": "^0.2.2",
     "axios": "^0.25.0",

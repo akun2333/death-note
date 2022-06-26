@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { del, delOne } from '../../database'
+import { del, delOne } from '@database'
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
   const { _id } = req.query
