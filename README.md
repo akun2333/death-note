@@ -14,8 +14,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 - Todo
   - PC 端适配
-  - Navbar 返回逻辑优化
+  - Navbar 返回逻辑
   - 标题过长忽略
   - 搜索功能
   - 富文本编辑
   - 主题切换
+
+## 本作品为 云影天光 实习面试题
+
+官方网站：https://www.perspectivar.com/
